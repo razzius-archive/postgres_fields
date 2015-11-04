@@ -43,7 +43,8 @@ INSTALLED_APPS = (
 
     'django_extensions',
 
-    'customers'
+    'customers',
+    'tickets'
 )
 
 MIDDLEWARE_CLASSES = (
