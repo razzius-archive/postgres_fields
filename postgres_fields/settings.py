@@ -39,6 +39,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
+
+    'django_extensions',
+
     'customers'
 )
 
@@ -100,3 +104,26 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+if DEBUG:
+    import logging
+    l = logging.getLogger('django.db.backends')
+    l.setLevel(logging.DEBUG)
+    l.addHandler(logging.StreamHandler())
+
+
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler'
+        }
+    },
+    'loggers': {
+        'django.db.backends': {
+            'level': 'DEBUG',
+            'handlers': ['console']
+        }
+    }
+}
